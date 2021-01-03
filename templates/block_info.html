@@ -1,0 +1,15 @@
+<html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<body>
+<h1>Информация о блоке номер: {{block["index"]}}</h1>
+<table>
+<tr><td>proof </td><td> {{block["proof"]}} </td></tr>
+<tr><td>time </td><td> {{datetime.fromtimestamp(block["timestamp"])}} </td></tr>
+{%for i in range(length)%}
+<tr><td>транзакция {{i}}</td><td> {{block['transactions'][i]}} </td></tr>
+{%endfor%}
+</table>
+<a href="#" onclick="history.back();">Назад</a>
+</body>
+</html>

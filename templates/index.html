@@ -1,0 +1,32 @@
+<html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<body>
+<h1>Баланс игроков после 20 раундов<h1>
+{% for key in gamers_money.keys(): %}
+<table>
+	<tr><td>{{key}}</td>  <td>{{gamers_money[key]}}</td>
+{% endfor %}
+</table>
+<h1>Информация о последнем блокчейне</h1>
+<table>
+    {% for key in last_block.keys(): %}
+	 <tr><td>{{key}}</td>
+	 {%if key == "timestamp"%}
+	 <td>{{datetime.fromtimestamp(last_block[key])}}</td>
+	 {%else%}
+	 <td>{{last_block[key]}}</td>
+	 {%endif%}
+	 <tr>
+	{% endfor %}
+</table>
+<h1>Информация о предыдущих блоках</h1>
+<table>
+	{% for block in pre_blocks: %}
+	<tr><td> 
+    <a href="{{url_for('block_info', block_index = block['index'] - 1)}}">{{block['previous_hash']}}</a>
+	</td></tr>
+	{% endfor %}
+</table>
+</body>
+</html>

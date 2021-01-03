@@ -1,0 +1,20 @@
+h1{
+	text-align:center;
+}
+ ul{
+	list-style-type: none;
+	width: 300px;
+	margin: auto;
+ }
+ 
+ table{
+	 border: 1px solid grey;
+	 width: 300px;
+	 margin: auto;
+ }
+ td {
+	 border: 1px solid grey;
+}
+ tr {
+	 border: 1px solid grey;
+}
